@@ -10,7 +10,17 @@ class HomeController
 	{
 		try {
 			$colectPostagens = Postagem::selecionaTodos();
-			var_dump($colectPostagens);
+
+			$loader = new \Twig\Loader\FilesystemLoader('App/View');
+			$twig = new \Twig\Environment($loader);
+			$template = $twig->load('home.html');
+
+			$parametros = array();
+			// $parametros['nome'] = 'Thiago';
+			$parametros['postagens'] = $colectPostagens;
+
+			echo $conteudo = $template->render($parametros);
+
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}

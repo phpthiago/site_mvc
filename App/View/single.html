@@ -1,0 +1,23 @@
+<section>
+
+		<article>
+			<header>
+				<h2>{{titulo}}</h2>
+			</header>
+			<p>{{conteudo}}</p>
+
+			<br>
+			<hr>
+			<br>
+			{% if comentarios == false %}
+			<p>Não existe comentário para essa postagem! Seja o primeiro a comentar.</p>
+			{% else %}
+				{% for coment in comentarios %}
+					<h3>{{coment.nome}}</h3>
+					<p>{{coment.mensagem}}</p>
+					<br>
+				{% endfor %}
+			{% endif %}
+		</article>
+	
+</section>

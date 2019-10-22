@@ -1,23 +1,11 @@
 <section>
 	<h1 class="title">Postagens:</h1>
-	<article>
-		<header>
-			<h2><a href="#">Titulo da postagem</a></h2>
-		</header>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut illo eius ratione commodi numquam, natus enim sunt! Totam numquam, quam eos placeat atque ratione cupiditate eligendi cum animi quibusdam dolores.</p>
-	</article>
-
-	<article>
-		<header>
-			<h2><a href="#">Titulo da postagem</a></h2>
-		</header>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut illo eius ratione commodi numquam, natus enim sunt! Totam numquam, quam eos placeat atque ratione cupiditate eligendi cum animi quibusdam dolores.</p>
-	</article>
-
-	<article>
-		<header>
-			<h2><a href="#">Titulo da postagem</a></h2>
-		</header>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut illo eius ratione commodi numquam, natus enim sunt! Totam numquam, quam eos placeat atque ratione cupiditate eligendi cum animi quibusdam dolores.</p>
-	</article>
+	{% for user in postagens %}
+		<article>
+			<header>
+				<h2><a href="http://localhost/site_mvc/?pagina=post&id={{user.id}}">{{user.titulo}}</a></h2>
+			</header>
+			<p>{{user.conteudo}}</p>
+		</article>
+	{% endfor %}
 </section>

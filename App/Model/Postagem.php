@@ -21,7 +21,7 @@ class Postagem
 		}
 
 		if (!$resultado) {
-				throw new Exception("Não foi encontrado nenhum registro no banco");		
+				throw new Exception("Não foi encontrado nenhum registro no banco!");		
 		}
 
 		return $resultado;

@@ -1,6 +1,7 @@
 <h2>Gerenciador de Conteúdo</h2>
 
-<a href="#">Criar Publicação</a>
+<a href="http://localhost/site_mvc/?pagina=admin&metodo=create">Criar Publicação</a>
+<br><br>
 <hr>
 <table border="2px">
 	<tr>
@@ -9,10 +10,12 @@
 		<th>Alteração</th>
 		<th>Deleção</th>
 	</tr>
+	{% for postagem in postagens %}
 	<tr>
-		<th>ID</th>
-		<th>Titulo</th>
-		<th>Alteração</th>
-		<th>Deleção</th>
+		<th>{{postagem.id}}</th>
+		<th>{{postagem.titulo}}</th>
+		<th><a href="http://localhost/site_mvc/?pagina=admin&metodo=change&id={{postagem.id}}">Alteração</a></th>
+		<th><a href="http://localhost/site_mvc/?pagina=admin&metodo=delete&id={{postagem.id}}"></a>Deleção</th>
 	</tr>
+	{% endfor %}
 </table>

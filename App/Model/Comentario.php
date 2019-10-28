@@ -29,4 +29,30 @@ class Comentario
 
 		return $resultado;
 	}
+
+	public static function inserir($reqPost)
+	{
+		$con = Connection::getConn();
+
+		$sql = "INSERT INTO comentario (nome, mensagem, id_postagem) VALUES (:nome, :msg, :idp)";
+		$sql = $con->prepare($sql);
+		$sql->bindValue(':nome', $reqPost['nome']);
+		$sql->bindValue(':msg', $reqPost['msg']);
+		$sql->bindValue(':idp', $reqPost['id']);
+		$result = $sql->execute();
+
+		// if ($result == 0) {
+		// 	throw new Exception("Falha ao inserir o cometário");
+
+		// 	return false;
+		// }
+
+		// return true;
+		if ($sql->rowCount()) {
+			return true;
+		}
+
+		throw new Exception("Falha na inserção");
+		
+	}
 }

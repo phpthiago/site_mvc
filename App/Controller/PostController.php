@@ -18,6 +18,7 @@ class PostController
 
 			$parametros = array();
 			// $parametros['nome'] = 'Thiago';
+			$parametros['id'] = $postagem->id;
 			$parametros['titulo'] = $postagem->titulo;
 			$parametros['conteudo'] = $postagem->conteudo;
 			$parametros['comentarios'] = $postagem->comentarios;
@@ -29,6 +30,20 @@ class PostController
 			echo $e->getMessage();
 		}
 		
+		
+	}
+
+	public function addComent()
+	{
+		try {
+			Comentario::inserir($_POST);
+			header('Location: http://localhost/site_mvc/?pagina=post&id='.$_POST['id']);
+			
+		} catch (Exception $e) {
+			echo '<script>alert("'.$e->getMessage().'")</script>';
+			echo '<script>location.href="http://localhost/site_mvc/?pagina=admin&metodo=post&id='.$_POST['id'].'"</script>';	
+			
+		}
 		
 	}
 }

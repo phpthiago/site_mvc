@@ -9,6 +9,18 @@
 			<br>
 			<hr>
 			<br>
+			<form method="post" action="http://localhost/site_mvc/?pagina=post&metodo=addComent">
+				<span>Nome:</span><br>
+				<input type="text" name="nome"><br><br>
+
+				<span>Mensagem:</span><br>
+				<textarea name="msg"cols="30" rows="10"></textarea><br>
+
+				<input type="hidden" name="id" value="{{id}}">
+
+				<input type="submit" value="Enviar">
+			</form>
+			<br><br>
 			{% if comentarios == false %}
 			<p>Não existe comentário para essa postagem! Seja o primeiro a comentar.</p>
 			{% else %}
